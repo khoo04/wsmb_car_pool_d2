@@ -106,7 +106,7 @@ class HistoryRidePage extends StatelessWidget {
                                           fontWeight: FontWeight.bold)),
                                   TextSpan(
                                       text:
-                                          "${historyRide[index]["data"].status.substring(0, 1).toUpperCase()}${historyRide[index]["data"].status.substring(1)}\n",
+                                          "${status.substring(0, 1).toUpperCase()}${status.substring(1)}\n",
                                       style: const TextStyle(
                                           fontWeight: FontWeight.normal)),
                                   const TextSpan(

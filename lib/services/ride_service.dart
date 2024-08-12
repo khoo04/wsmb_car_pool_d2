@@ -55,7 +55,7 @@ class RideService {
   }
 
   static Future<Ride> fetchCurrentRideDetails(String rideId) async {
-    await Future.delayed(Duration(seconds: 2));
+
     DocumentSnapshot documentSnapshot = await ridesRef.doc(rideId).get();
     Map<String, dynamic> dataMap =
         documentSnapshot.data() as Map<String, dynamic>;
@@ -158,7 +158,7 @@ class RideService {
 
       ridesHistoryRef.doc(historyId).update(rideHistoryModel.toJson());
 
-      return false;
+      return true;
     } catch (e) {
       debugPrint(e.toString());
       return false;

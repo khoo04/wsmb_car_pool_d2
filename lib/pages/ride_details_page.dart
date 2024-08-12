@@ -3,6 +3,7 @@ import 'package:car_pool_rider/services/rider_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../helper.dart';
 import '../models/ride.dart';
 
 class RideDetails extends StatefulWidget {
@@ -98,20 +99,33 @@ class _RideDetailsState extends State<RideDetails> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ride.riders.any((element) => element!.email == FirebaseAuth.instance.currentUser!.email) ?
-                        ElevatedButton(
+                        if (ride.startDateTime.isAfter(DateTime.now()))
+                          ride.riders.any((element) => element!.email == FirebaseAuth.instance.currentUser!.email) ?
+                          ElevatedButton(
+                              onPressed: () async {
+                                bool isSuccess = await RideService.cancelRide(widget.rideId);
+                                if (isSuccess){
+                                  Helper.showSnackBar(context, "Cancelled Ride Successfully");
+                                  setState(() {
+                                  });
+                                }else{
+                                  Helper.showSnackBar(context, "Error occurred in cancelling ride");
+                                }
+                              }, child:  const Text("Cancel"),
+                          ) :  ElevatedButton(
                             onPressed: () async {
-                              RideService.cancelRide(widget.rideId);
-                              setState(() {
-                              });
-                            }, child:  const Text("Cancel"),
-                        ) :  ElevatedButton(
-                          onPressed: () async {
-                            RideService.joinRide(widget.rideId, ride.driver!.vehicle.capacity);
-                            setState(() {
-                            });
-                          }, child:  const Text("Join"),
-                        )
+                              bool isSuccess = await RideService.joinRide(widget.rideId, ride.driver!.vehicle.capacity);
+                              if (isSuccess){
+                                Helper.showSnackBar(context, "Joined Ride Successfully");
+                                setState(() {
+                                });
+                              }else{
+                                Helper.showSnackBar(context, "Error occurred in joining ride");
+                              }
+                            }, child:  const Text("Join"),
+                          )
+                        else
+                          const SizedBox()
                       ],
                     ),
                   ],
