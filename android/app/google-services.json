@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "624151108445",
+    "project_id": "wsmb-final-car-pool",
+    "storage_bucket": "wsmb-final-car-pool.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624151108445:android:5a2a2c2c2656455a25e6b4",
+        "android_client_info": {
+          "package_name": "mobile.wsmb2024.khoo.car_pool_driver"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCeslXXxC4gWUSHswzVY_-QG6ryoMwvP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624151108445:android:9aafce26475615ee25e6b4",
+        "android_client_info": {
+          "package_name": "mobile.wsmb2024.khoo.car_pool_rider"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCeslXXxC4gWUSHswzVY_-QG6ryoMwvP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
